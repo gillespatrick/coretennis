@@ -7,6 +7,7 @@ package com.gilles.tennis.coretennis;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,6 +24,7 @@ public class TestDeConnection {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TENNIS?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=Europe/Paris", "gilles", "gillespatr9ck");
 
             Statement stat = conn.createStatement();
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM JOUEUR where ID =?");
             ResultSet rs = stat.executeQuery("select * from JOUEUR where id =12");
 
             if (rs.next()) {
