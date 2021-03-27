@@ -14,7 +14,7 @@ import java.sql.*;
 
 public class TestDeConnection {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Connection conn = null;
         try {
@@ -24,9 +24,6 @@ public class TestDeConnection {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TENNIS", "gilles", "gillespatr9ck");
 
             //Statement statement = conn.createStatement();
-
-
-
 
           /* ResultSet rs = statement.executeQuery("select * from JOUEUR ");
            while (rs.next()){
@@ -51,8 +48,10 @@ public class TestDeConnection {
                 System.out.println("Ce joueur n'existe pas");
             }
             */
+            //**********  End Display ***********
 
             // Update
+          /*  conn.setAutoCommit(false);
             PreparedStatement statement = conn.prepareStatement("update JOUEUR set NOM=?, PRENOM=? where ID = ?");
 
             long Id = 55L;
@@ -64,12 +63,48 @@ public class TestDeConnection {
             statement.setLong(3,Id);
 
           int nbSaving =  statement.executeUpdate();
+
+          conn.commit();
+            System.out.println("Le nombre d'enregitre put a jour est: "+nbSaving);
+
+        */
+
+            // Insert
+            conn.setAutoCommit(false);
+            PreparedStatement statement = conn.prepareStatement("insert into  JOUEUR (NOM,PRENOM,SEXE) values(?,?,?)");
+
+
+            String nom = "Ouaga";
+            String prenom = "Dougou";
+            String sexe = "F";
+
+            statement.setString(1,nom);
+            statement.setString(2,prenom);
+            statement.setString(3,sexe);
+
+            int nbSaving = statement.executeUpdate();
+
+            nom = "Obama";
+             prenom = "Steve";
+             sexe = "H";
+
+            statement.setString(1,nom);
+            statement.setString(2,prenom);
+            statement.setString(3,sexe);
+            // statement.setNull(3, Types.CHAR);
+
+            statement.executeUpdate();
+
+            conn.commit();
             System.out.println("Le nombre d'enregitre put a jour est: "+nbSaving);
 
 
             System.out.println("success");
         } catch (SQLException e) {
             e.printStackTrace();
+            if (conn != null) {
+                conn.rollback();
+            }
         } finally {
             try {
                 if (conn != null) {
