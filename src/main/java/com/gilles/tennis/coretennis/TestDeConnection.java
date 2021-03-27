@@ -25,9 +25,7 @@ public class TestDeConnection {
 
             //Statement statement = conn.createStatement();
 
-            PreparedStatement statement = conn.prepareStatement("select * from JOUEUR where ID = ?");
-            long Id = 22L;
-            statement.setLong(1,Id);
+
 
 
           /* ResultSet rs = statement.executeQuery("select * from JOUEUR ");
@@ -39,6 +37,10 @@ public class TestDeConnection {
            }*/
 
             // When i want to display only one player
+         /*  PreparedStatement statement = conn.prepareStatement("select * from JOUEUR where ID = ?");
+            long Id = 22L;
+            statement.setLong(1,Id);
+
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 final String prenom = rs.getString("PRENOM");
@@ -48,6 +50,21 @@ public class TestDeConnection {
             else {
                 System.out.println("Ce joueur n'existe pas");
             }
+            */
+
+            // Update
+            PreparedStatement statement = conn.prepareStatement("update JOUEUR set NOM=?, PRENOM=? where ID = ?");
+
+            long Id = 55L;
+            String nom = "Yvane";
+            String prenom = "Dipande";
+
+            statement.setString(1,nom);
+            statement.setString(2,prenom);
+            statement.setLong(3,Id);
+
+          int nbSaving =  statement.executeUpdate();
+            System.out.println("Le nombre d'enregitre put a jour est: "+nbSaving);
 
 
             System.out.println("success");
