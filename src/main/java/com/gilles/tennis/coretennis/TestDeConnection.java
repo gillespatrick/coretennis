@@ -5,10 +5,7 @@
  */
 package com.gilles.tennis.coretennis;
 
-
-
-
-
+import com.mysql.cj.jdbc.MysqlDataSource;
 
 import java.sql.*;
 
@@ -18,10 +15,15 @@ public class TestDeConnection {
 
         Connection conn = null;
         try {
+            MysqlDataSource dataSource = new MysqlDataSource();
+            dataSource.setURL("jdbc:mysql://localhost:3306/TENNIS");
+            dataSource.setUser("gilles");
+            dataSource.setPassword("gillespatr9ck");
+            conn = dataSource.getConnection();
 
 
             // MySQL driver MySQL Connector
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TENNIS", "gilles", "gillespatr9ck");
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TENNIS", "gilles", "gillespatr9ck");
 
             //Statement statement = conn.createStatement();
 
