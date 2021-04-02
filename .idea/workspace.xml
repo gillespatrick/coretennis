@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="4- Write inside the Database">
+    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="5- Commit &amp;&amp; Rollback Transaction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TestDeConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TestDeConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/TestDeConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/TestDeConnection.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +30,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="TestDeConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616858244473</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="5- Commit &amp;&amp; Rollback Transaction">
+      <created>1616861892994</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616861892994</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +137,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Reset Project" />
@@ -136,6 +145,7 @@
     <MESSAGE value="2- Read data whithin a table" />
     <MESSAGE value="3- Param Request PrepareStatement" />
     <MESSAGE value="4- Write inside the Database" />
-    <option name="LAST_COMMIT_MESSAGE" value="4- Write inside the Database" />
+    <MESSAGE value="5- Commit &amp;&amp; Rollback Transaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="5- Commit &amp;&amp; Rollback Transaction" />
   </component>
 </project>
