@@ -19,13 +19,14 @@ public class TestDeConnection {
         System.out.println(joueur.getPrenom()+" "+joueur.getNom());
         */
 
-        /*/ Create
+        // Create
         Joueur simpo = new Joueur();
-        simpo.setNom("Simpo");
+        simpo.setNom("Simpore");
         simpo.setPrenom("Gildas");
         simpo.setSexe('H');
         joueurRepo.create(simpo);
-        */
+        System.out.println("ID = "+simpo.getId());
+
 
          /*/ Update
         Joueur simpo = joueurRepo.getById(72L);
@@ -37,12 +38,13 @@ public class TestDeConnection {
         joueurRepo.delete(72L);
         */
 
-        // List
+        /*/ List
         List<Joueur> list = joueurRepo.list();
 
         for (Joueur joueur: list){
             System.out.println(joueur.getPrenom()+" "+joueur.getNom()+" --> "+joueur.getSexe());
         }
+        */
 
 
 

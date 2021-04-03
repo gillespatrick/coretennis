@@ -5,10 +5,7 @@ import com.gilles.tennis.coretennis.entity.Joueur;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +30,7 @@ public class JoueurRepoImpl {
 
             // Insert
 
-            PreparedStatement statement = conn.prepareStatement("insert into  JOUEUR (NOM,PRENOM,SEXE) values(?,?,?)");
+            PreparedStatement statement = conn.prepareStatement("insert into  JOUEUR (NOM,PRENOM,SEXE) values(?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
 
             statement.setString(1, joueur.getNom());
@@ -41,6 +38,12 @@ public class JoueurRepoImpl {
             statement.setString(3,joueur.getSexe().toString());
 
             statement.executeUpdate();
+             ResultSet rs = statement.getGeneratedKeys();
+
+             if (rs.next()){
+                joueur.setId(rs.getLong(1));
+             }
+
 
 
 
