@@ -6,6 +6,7 @@
 package com.gilles.tennis.coretennis;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.*;
 
@@ -15,9 +16,17 @@ public class TestDeConnection {
 
         Connection conn = null;
         try {
-            MysqlDataSource dataSource = new MysqlDataSource();
+           /* MysqlDataSource dataSource = new MysqlDataSource();
             dataSource.setURL("jdbc:mysql://localhost:3306/TENNIS");
             dataSource.setUser("gilles");
+            dataSource.setPassword("gillespatr9ck");
+            conn = dataSource.getConnection();
+            */
+
+            BasicDataSource dataSource = new BasicDataSource();
+            dataSource.setInitialSize(2);
+            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
+            dataSource.setUsername("gilles");
             dataSource.setPassword("gillespatr9ck");
             conn = dataSource.getConnection();
 
