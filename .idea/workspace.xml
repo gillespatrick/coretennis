@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="5- Datasource Share">
+    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="6- Auto-Increments">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TPs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TestDeConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TestDeConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,25 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gilles.tennis.coretennis.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TPs">
+    <configuration name="TPs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gilles.tennis.coretennis.TPs" />
+      <module name="coretennis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gilles.tennis.coretennis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestDeConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gilles.tennis.coretennis.TestDeConnection" />
       <module name="coretennis" />
@@ -62,6 +81,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TPs" />
         <item itemvalue="Application.TestDeConnection" />
       </list>
     </recent_temporary>
@@ -180,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617451469828</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="6- Auto-Increments">
+      <created>1617452126388</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617452126388</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +247,7 @@
     <MESSAGE value="3- Repository" />
     <MESSAGE value="4- First implementation Repository" />
     <MESSAGE value="5- Datasource Share" />
-    <option name="LAST_COMMIT_MESSAGE" value="5- Datasource Share" />
+    <MESSAGE value="6- Auto-Increments" />
+    <option name="LAST_COMMIT_MESSAGE" value="6- Auto-Increments" />
   </component>
 </project>
