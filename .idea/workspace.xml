@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="6- Auto-Increments">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TPs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="7- Write the business and repository entity classes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617452126388</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="7- Write the business and repository entity classes">
+      <created>1617457566079</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617457566079</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,6 +250,7 @@
     <MESSAGE value="4- First implementation Repository" />
     <MESSAGE value="5- Datasource Share" />
     <MESSAGE value="6- Auto-Increments" />
-    <option name="LAST_COMMIT_MESSAGE" value="6- Auto-Increments" />
+    <MESSAGE value="7- Write the business and repository entity classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="7- Write the business and repository entity classes" />
   </component>
 </project>
