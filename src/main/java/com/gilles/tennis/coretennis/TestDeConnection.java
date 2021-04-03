@@ -3,16 +3,16 @@ package com.gilles.tennis.coretennis;
 
 
 import com.gilles.tennis.coretennis.entity.Joueur;
-import com.gilles.tennis.coretennis.repository.JoueurRepoImpl;
-
+import com.gilles.tennis.coretennis.services.JoueurService;
 import java.sql.SQLException;
-import java.util.List;
+
 
 public class TestDeConnection {
 
     public static void main(String[] args) throws SQLException {
 
-        JoueurRepoImpl joueurRepo = new JoueurRepoImpl();
+        //JoueurRepoImpl joueurRepo = new JoueurRepoImpl();
+        JoueurService joueurService = new JoueurService();
 
         /*/ getByID
         Joueur joueur = joueurRepo.getById(54L);
@@ -21,10 +21,10 @@ public class TestDeConnection {
 
         // Create
         Joueur simpo = new Joueur();
-        simpo.setNom("Simpore");
-        simpo.setPrenom("Gildas");
+        simpo.setNom("Gilles");
+        simpo.setPrenom("Patrick");
         simpo.setSexe('H');
-        joueurRepo.create(simpo);
+        joueurService.createJoueur(simpo);
         System.out.println("ID = "+simpo.getId());
 
 
