@@ -1,8 +1,10 @@
 package com.gilles.tennis.coretennis.repository;
 
+import com.gilles.tennis.coretennis.DataSourceProvider;
 import com.gilles.tennis.coretennis.entity.Joueur;
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,11 +20,15 @@ public class JoueurRepoImpl {
         Connection conn = null;
         try {
 
-            BasicDataSource dataSource = new BasicDataSource();
+            /*BasicDataSource dataSource = new BasicDataSource();
             dataSource.setInitialSize(2);
             dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
             dataSource.setUsername("gilles");
             dataSource.setPassword("gillespatr9ck");
+            conn = dataSource.getConnection();
+            */
+
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
 
             // Insert
@@ -65,11 +71,7 @@ public class JoueurRepoImpl {
         Connection conn = null;
         try {
 
-            BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setInitialSize(2);
-            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
-            dataSource.setUsername("gilles");
-            dataSource.setPassword("gillespatr9ck");
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
 
             // Insert
@@ -113,14 +115,10 @@ public class JoueurRepoImpl {
         Connection conn = null;
         try {
 
-            BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setInitialSize(2);
-            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
-            dataSource.setUsername("gilles");
-            dataSource.setPassword("gillespatr9ck");
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
 
-            // Insert
+
 
             PreparedStatement statement = conn.prepareStatement("delete from JOUEUR  where ID=?");
 
@@ -155,14 +153,8 @@ public class JoueurRepoImpl {
         Joueur joueur = null;
         try {
 
-            BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setInitialSize(2);
-            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
-            dataSource.setUsername("gilles");
-            dataSource.setPassword("gillespatr9ck");
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
-
-            // Insert
 
             PreparedStatement statement = conn.prepareStatement("select NOM,PRENOM,SEXE from JOUEUR  where ID=?");
 
@@ -208,14 +200,8 @@ public class JoueurRepoImpl {
         List<Joueur> joueurs = new ArrayList<>();
         try {
 
-            BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setInitialSize(2);
-            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
-            dataSource.setUsername("gilles");
-            dataSource.setPassword("gillespatr9ck");
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
-
-            // Insert
 
             PreparedStatement statement = conn.prepareStatement("select ID,NOM,PRENOM,SEXE from JOUEUR ");
 
