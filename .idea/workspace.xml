@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="2- Connection Pool">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Joueur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" afterDir="false" />
+    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="3- Repository">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617444064460</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="3- Repository">
+      <created>1617444698618</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617444698618</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,7 +202,8 @@
     <MESSAGE value="5- Commit &amp;&amp; Rollback Transaction V1" />
     <MESSAGE value="1- Datasource Class" />
     <MESSAGE value="2- Connection Pool" />
-    <option name="LAST_COMMIT_MESSAGE" value="2- Connection Pool" />
+    <MESSAGE value="3- Repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="3- Repository" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
