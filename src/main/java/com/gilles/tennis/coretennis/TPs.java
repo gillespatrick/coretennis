@@ -46,8 +46,5 @@ public class TPs {
         Tournoi tournoi = tournoiService.getTournoi(5L);
         System.out.println(tournoi.getNom()+" ---> "+tournoi.getCode());
 
-
-
-
     }
 }
