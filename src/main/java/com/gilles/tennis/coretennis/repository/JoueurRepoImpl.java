@@ -1,6 +1,7 @@
 package com.gilles.tennis.coretennis.repository;
 
 import com.gilles.tennis.coretennis.DataSourceProvider;
+import com.gilles.tennis.coretennis.HibernateUtil;
 import com.gilles.tennis.coretennis.entity.Joueur;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -8,6 +9,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
 
 public class JoueurRepoImpl {
 
@@ -43,10 +45,6 @@ public class JoueurRepoImpl {
              if (rs.next()){
                 joueur.setId(rs.getLong(1));
              }
-
-
-
-
 
 
             System.out.println("Joueur Cree");
@@ -152,43 +150,17 @@ public class JoueurRepoImpl {
     // Recherche d'un joueur
     public Joueur getById (Long id) throws SQLException {
 
-        Connection conn = null;
+       
         Joueur joueur = null;
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            
+             joueur = session.get(Joueur.class, id);
 
-            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
-            conn = dataSource.getConnection();
-
-            PreparedStatement statement = conn.prepareStatement("select NOM,PRENOM,SEXE from JOUEUR  where ID=?");
-
-            statement.setLong(1,id);
-
-            ResultSet rs = statement.executeQuery();
-
-            if (rs.next()){
-                joueur = new Joueur();
-                joueur.setId(id);
-                joueur.setNom(rs.getString("NOM"));
-                joueur.setPrenom(rs.getString("PRENOM"));
-                joueur.setSexe(rs.getString("SEXE").charAt(0));
-
-            }
 
 
             System.out.println("Joueur recupere");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if (conn != null) {
-                conn.rollback();
-            }
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        } catch(Throwable t){
+            t.printStackTrace();
         }
 
         return joueur;

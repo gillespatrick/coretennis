@@ -1,0 +1,17 @@
+com/gilles/tennis/coretennis/HibernateUtil.class
+com/gilles/tennis/coretennis/DataSourceProvider.class
+com/gilles/tennis/coretennis/repository/ScoreRepoImpl.class
+com/gilles/tennis/coretennis/services/JoueurService.class
+com/gilles/tennis/coretennis/dao/MatchDao.class
+com/gilles/tennis/coretennis/entity/Joueur.class
+com/gilles/tennis/coretennis/repository/TournoiRepoImpl.class
+com/gilles/tennis/coretennis/entity/Match.class
+com/gilles/tennis/coretennis/entity/Tournoi.class
+com/gilles/tennis/coretennis/entity/Epreuve.class
+com/gilles/tennis/coretennis/entity/Score.class
+com/gilles/tennis/coretennis/TPs.class
+com/gilles/tennis/coretennis/services/MatchService.class
+com/gilles/tennis/coretennis/Cour.class
+com/gilles/tennis/coretennis/services/TournoiService.class
+com/gilles/tennis/coretennis/repository/MatchRepoImpl.class
+com/gilles/tennis/coretennis/repository/JoueurRepoImpl.class

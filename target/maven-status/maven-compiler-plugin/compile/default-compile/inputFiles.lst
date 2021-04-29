@@ -1,0 +1,17 @@
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/DataSourceProvider.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/Cour.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/dao/MatchDao.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/HibernateUtil.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/repository/MatchRepoImpl.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/services/MatchService.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/TPs.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/entity/Match.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/entity/Joueur.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/services/TournoiService.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/services/JoueurService.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/repository/ScoreRepoImpl.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/entity/Epreuve.java
+/home/gillios/NetBeansProjects/coretennis/src/main/java/com/gilles/tennis/coretennis/entity/Score.java
