@@ -68,25 +68,18 @@ public class JoueurService {
         }
     }
 
-    public void rename(Long id, String newName) {
+    public void rename(Long id, String newName) throws SQLException {
+        joueur = getJoueur(id);
 
-        try {
-            session = HibernateUtil.getSessionFactory().getCurrentSession();
-            tx = session.beginTransaction();
-            joueur = joueurRepo.getById(id);
-            joueur.setNom(newName);
-            tx.commit();
-            System.out.println("Le joueur a ete renomme avec succes");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if (tx != null) {
-                tx.rollback();
-            }
-        } finally {
-            if (session != null) {
-                session.close();
-            }
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        tx = session.beginTransaction();
+        //  joueur = joueurRepo.getById(id);
+        joueur.setNom(newName);
+        session.merge(joueur);
+        tx.commit();
+        System.out.println("Le joueur a ete renomme avec succes");
+        if (session != null) {
+            session.close();
         }
     }
 }
