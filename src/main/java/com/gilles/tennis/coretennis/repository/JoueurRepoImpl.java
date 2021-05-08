@@ -69,34 +69,14 @@ public class JoueurRepoImpl {
 
     // Suppression d'un joueur
     public void delete(Long id) throws SQLException {
+        
+        joueur = getById(id);
 
-        Connection conn = null;
-        try {
-
-            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
-            conn = dataSource.getConnection();
-
-            PreparedStatement statement = conn.prepareStatement("delete from JOUEUR  where ID=?");
-
-            statement.setLong(1, id);
-
-            statement.executeUpdate();
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.delete(joueur);
 
             System.out.println("Joueur supprime");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if (conn != null) {
-                conn.rollback();
-            }
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+     
 
     }
 

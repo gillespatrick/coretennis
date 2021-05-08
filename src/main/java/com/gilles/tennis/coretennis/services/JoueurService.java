@@ -70,7 +70,7 @@ public class JoueurService {
 
     
     // Rename Players
-    public void rename(Long id, String newName) throws SQLException {
+    public void renameJoueur(Long id, String newName) throws SQLException {
         joueur = getJoueur(id);
 
         session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -86,7 +86,7 @@ public class JoueurService {
     }
     
     // Change Sex Player
-    public void changeSex(Long id, char sex) throws SQLException{
+    public void changeSexJoueur(Long id, char sex) throws SQLException{
         joueur = getJoueur(id);
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         tx = session.beginTransaction();
@@ -99,6 +99,32 @@ public class JoueurService {
             session.close();
         }
         
+        
+    }
+    
+    // Delete Player
+    public Joueur deleteJoueur(Long id){
+        
+         try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            tx = session.beginTransaction();
+            joueurRepo.delete(id);
+
+            tx.commit();
+            System.out.println("Le joueur a ete supprime avec succes");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+            return joueur;
+
+        }
         
     }
     
