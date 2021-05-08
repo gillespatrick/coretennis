@@ -29,7 +29,7 @@ public class JoueurRepoImpl {
 
     }
 
-    // Mise a jour du joueur
+    /* Mise a jour du joueur
     public void Update(Joueur joueur) throws SQLException {
 
         Connection conn = null;
@@ -65,6 +65,7 @@ public class JoueurRepoImpl {
         }
 
     }
+    */
 
     // Suppression d'un joueur
     public void delete(Long id) throws SQLException {

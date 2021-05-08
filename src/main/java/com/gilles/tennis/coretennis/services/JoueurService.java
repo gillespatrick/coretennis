@@ -19,7 +19,7 @@ public class JoueurService {
         this.joueurRepo = new JoueurRepoImpl();
     }
 
-    // Methode Create
+    // Create Player
     public void createJoueur(Joueur joueur) throws SQLException {
 
         try {
@@ -43,7 +43,7 @@ public class JoueurService {
 
         }
     }
-        // Recuperation d'un joueur
+        // Get Player
     public Joueur getJoueur(Long id) throws SQLException {
 
         try {
@@ -68,6 +68,8 @@ public class JoueurService {
         }
     }
 
+    
+    // Rename Players
     public void rename(Long id, String newName) throws SQLException {
         joueur = getJoueur(id);
 
@@ -82,4 +84,23 @@ public class JoueurService {
             session.close();
         }
     }
+    
+    // Change Sex Player
+    public void changeSex(Long id, char sex) throws SQLException{
+        joueur = getJoueur(id);
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        tx = session.beginTransaction();
+        joueur.setSexe(sex);
+        session.merge(joueur);
+        tx.commit();
+        
+        System.out.println("Le sexe du joueur a ete modifie avec succes");
+        if (session != null) {
+            session.close();
+        }
+        
+        
+    }
+    
+    
 }
