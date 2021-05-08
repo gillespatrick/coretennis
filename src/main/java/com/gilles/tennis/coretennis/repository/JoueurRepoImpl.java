@@ -15,11 +15,12 @@ import org.hibernate.Transaction;
 public class JoueurRepoImpl {
 
     // Creation joueur
-    Transaction tx = null;
+   Transaction tx = null;
+        Session session = null ;
     public void create (Joueur joueur) throws SQLException {
 
        // Joueur joueur = null;
-        Session session = null;
+        
         try  {
              session = HibernateUtil.getSessionFactory().openSession();
              tx = session.beginTransaction();

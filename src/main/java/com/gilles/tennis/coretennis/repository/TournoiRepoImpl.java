@@ -13,15 +13,31 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class TournoiRepoImpl {
+        Transaction tx = null;
+        Session session = null ;
 
     // Creation tournoi
     public void create(Tournoi tournoi) throws SQLException {
+        
+        
 
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+             session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
             session.persist(tournoi);
-            System.out.println("Tournoi ajoute avec succes");
-        } catch (Exception e) {
+            tx.commit();
+            
+        } catch(Exception e){
+            if (tx != null) {
+                tx.rollback();
+            }
+            
+            e.printStackTrace();
+        }
+        finally {
+            if (session != null){
+                session.close();
+            }
         }
     }
 
