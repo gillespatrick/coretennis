@@ -36,7 +36,7 @@
 
 		<!-- Enities to map -->
         <mapping class="com.gilles.tennis.coretennis.entity.Joueur" />
-		<!-- mapping class="com.mycompany.tennis.core.entity.Tournoi" /-->
+        <mapping class="com.gilles.tennis.coretennis.entity.Tournoi" />
 
     </session-factory>
 

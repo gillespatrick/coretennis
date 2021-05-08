@@ -23,4 +23,8 @@ public class TournoiService {
         return tournoiRepo.getById(id);
 
     }
+    
+    public void deleteTournoi(Long id) throws SQLException{
+        tournoiRepo.delete(id);
+    }
 }
