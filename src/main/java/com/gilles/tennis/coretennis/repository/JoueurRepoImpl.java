@@ -15,36 +15,35 @@ import org.hibernate.Transaction;
 public class JoueurRepoImpl {
 
     // Creation joueur
-   Transaction tx = null;
-        Session session = null ;
-    public void create (Joueur joueur) throws SQLException {
+    Transaction tx = null;
+    Session session = null;
+    Joueur joueur = null;
 
-       // Joueur joueur = null;
-        
-        try  {
-             session = HibernateUtil.getSessionFactory().openSession();
-             tx = session.beginTransaction();
-             session.persist(joueur);
-             tx.commit();
-           
-        } catch(Exception e){
+    public void create(Joueur joueur) throws SQLException {
+
+        // Joueur joueur = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.persist(joueur);
+            tx.commit();
+
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
-            
+
             e.printStackTrace();
-        }
-        finally {
-            if (session != null){
+        } finally {
+            if (session != null) {
                 session.close();
             }
         }
 
     }
 
-
     // Mise a jour du joueur
-    public void Update (Joueur joueur) throws SQLException {
+    public void Update(Joueur joueur) throws SQLException {
 
         Connection conn = null;
         try {
@@ -53,20 +52,14 @@ public class JoueurRepoImpl {
             conn = dataSource.getConnection();
 
             // Insert
-
             PreparedStatement statement = conn.prepareStatement("update JOUEUR set NOM=?, PRENOM=?, SEXE=? where ID=?");
-
 
             statement.setString(1, joueur.getNom());
             statement.setString(2, joueur.getPrenom());
-            statement.setString(3,joueur.getSexe().toString());
-            statement.setLong(4,joueur.getId());
+            statement.setString(3, joueur.getSexe().toString());
+            statement.setLong(4, joueur.getId());
 
             statement.executeUpdate();
-
-
-
-
 
             System.out.println("Joueur mise a jour");
         } catch (SQLException e) {
@@ -86,9 +79,8 @@ public class JoueurRepoImpl {
 
     }
 
-
     // Suppression d'un joueur
-    public void delete (Long id) throws SQLException {
+    public void delete(Long id) throws SQLException {
 
         Connection conn = null;
         try {
@@ -96,14 +88,11 @@ public class JoueurRepoImpl {
             DataSource dataSource = DataSourceProvider.getDataSourceInstance();
             conn = dataSource.getConnection();
 
-
-
             PreparedStatement statement = conn.prepareStatement("delete from JOUEUR  where ID=?");
 
-            statement.setLong(1,id);
+            statement.setLong(1, id);
 
             statement.executeUpdate();
-
 
             System.out.println("Joueur supprime");
         } catch (SQLException e) {
@@ -123,22 +112,18 @@ public class JoueurRepoImpl {
 
     }
 
-
     // Recherche d'un joueur
-    public Joueur getById (Long id) throws SQLException {
+    public Joueur getById(Long id) throws SQLException {
 
-        Joueur joueur = null;
-        Session session = null;
-        try  {
+        try {
             session = HibernateUtil.getSessionFactory().openSession();
-             joueur = session.get(Joueur.class, id);
+            joueur = session.get(Joueur.class, id);
 
             System.out.println("Joueur recupere");
-        } catch(Throwable t){
+        } catch (Throwable t) {
             t.printStackTrace();
-        }
-        finally {
-            if (session != null){
+        } finally {
+            if (session != null) {
                 session.close();
             }
         }
@@ -147,9 +132,8 @@ public class JoueurRepoImpl {
 
     }
 
-
     // Liste des joueurs
-    public List<Joueur> list () throws SQLException {
+    public List<Joueur> list() throws SQLException {
 
         Connection conn = null;
         List<Joueur> joueurs = new ArrayList<>();
@@ -162,7 +146,7 @@ public class JoueurRepoImpl {
 
             ResultSet rs = statement.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 Joueur joueur = new Joueur();
                 joueur.setId(rs.getLong("ID"));
                 joueur.setNom(rs.getString("NOM"));
@@ -171,7 +155,6 @@ public class JoueurRepoImpl {
                 joueurs.add(joueur);
 
             }
-
 
             System.out.println("List des tous les Joueur recupere");
         } catch (SQLException e) {
@@ -193,8 +176,28 @@ public class JoueurRepoImpl {
 
     }
 
+    public void rename(Long id, String newName) {
+        
+           try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            joueur = session.get(Joueur.class, id);
+            joueur.setNom(newName);
+            tx.commit();
+            System.out.println("Le joueur a ete renomme avec succe " );
 
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
 
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
 
+    }
 
 }

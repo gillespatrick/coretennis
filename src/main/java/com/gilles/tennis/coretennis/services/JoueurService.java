@@ -23,4 +23,8 @@ public class JoueurService {
         return joueurRepo.getById(id);
 
     }
+    
+    public void rename(Long id, String newName){
+        joueurRepo.rename(id, newName);
+    }
 }
