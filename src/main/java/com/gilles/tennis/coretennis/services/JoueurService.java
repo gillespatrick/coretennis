@@ -1,13 +1,19 @@
 package com.gilles.tennis.coretennis.services;
 
+import com.gilles.tennis.coretennis.HibernateUtil;
 import com.gilles.tennis.coretennis.entity.Joueur;
 import com.gilles.tennis.coretennis.repository.JoueurRepoImpl;
 
 import java.sql.SQLException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class JoueurService {
 
     private JoueurRepoImpl joueurRepo;
+    Transaction tx = null;
+    Session session = null;
+    Joueur joueur = null;
 
     public JoueurService() {
         this.joueurRepo = new JoueurRepoImpl();
@@ -15,16 +21,72 @@ public class JoueurService {
 
     // Methode Create
     public void createJoueur(Joueur joueur) throws SQLException {
-        joueurRepo.create(joueur);
-    }
 
-    // Recuperation d'un joueur
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            tx = session.beginTransaction();
+            joueurRepo.create(joueur);
+            tx.commit();
+            
+            System.out.println("Le joueur a ete cree avec succes");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+           
+
+        }
+    }
+        // Recuperation d'un joueur
     public Joueur getJoueur(Long id) throws SQLException {
-        return joueurRepo.getById(id);
 
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            tx = session.beginTransaction();
+            joueur = joueurRepo.getById(id);
+
+            tx.commit();
+            System.out.println("Le joueur a ete lu avec succes");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+            return joueur;
+
+        }
     }
-    
-    public void rename(Long id, String newName){
-        joueurRepo.rename(id, newName);
+
+    public void rename(Long id, String newName) {
+
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            tx = session.beginTransaction();
+            joueur = joueurRepo.getById(id);
+            joueur.setNom(newName);
+            tx.commit();
+            System.out.println("Le joueur a ete renomme avec succes");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 }

@@ -22,23 +22,10 @@ public class JoueurRepoImpl {
     public void create(Joueur joueur) throws SQLException {
 
         // Joueur joueur = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-            session.persist(joueur);
-            tx.commit();
-
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.persist(joueur);
+        tx.commit();
 
     }
 
@@ -115,18 +102,10 @@ public class JoueurRepoImpl {
     // Recherche d'un joueur
     public Joueur getById(Long id) throws SQLException {
 
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            joueur = session.get(Joueur.class, id);
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        joueur = session.get(Joueur.class, id);
 
-            System.out.println("Joueur recupere");
-        } catch (Throwable t) {
-            t.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        System.out.println("Joueur recupere");
 
         return joueur;
 
@@ -176,7 +155,7 @@ public class JoueurRepoImpl {
 
     }
 
-    public void rename(Long id, String newName) {
+    /*  public void rename(Long id, String newName) {
         
            try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -199,5 +178,5 @@ public class JoueurRepoImpl {
         }
 
     }
-
+     */
 }
