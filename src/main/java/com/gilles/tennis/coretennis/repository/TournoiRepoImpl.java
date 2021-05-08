@@ -13,9 +13,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class TournoiRepoImpl {
+        Session session = null;
+        Tournoi tournoi = new Tournoi();
         Transaction tx = null;
-        Session session = null ;
-
+        
     // Creation tournoi
     public void create(Tournoi tournoi) throws SQLException {
         
@@ -79,33 +80,21 @@ public class TournoiRepoImpl {
 
     // Suppression d'un tournoi
     public void delete(Long id) throws SQLException {
-        Session session = null;
-        Tournoi tournoi = new Tournoi();
-        Transaction tx = null;
-
-        session = HibernateUtil.getSessionFactory().openSession();
-        tournoi.setId(id);
+        
+        tournoi = getById(id);
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.delete(tournoi);
-        System.out.println("Le tournoi avec l'Id " + tournoi.getId() + " et le nom " + tournoi.getNom() + " a ete correctement supprime");
+        System.out.println("tournoi supprime");
 
-        if (session != null) {
-            session.close();
-        }
+        
     }
 
     // Recherche d'un tournoi
     public Tournoi getById(Long id) throws SQLException {
 
-        Tournoi tournoi = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-
-            tournoi = session.get(Tournoi.class, id);
-
-            System.out.println("Tournoi recupere");
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        tournoi = session.get(Tournoi.class, id);
+        System.out.println("Tournoi recupere");
         return tournoi;
 
     }

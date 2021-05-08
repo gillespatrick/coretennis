@@ -22,7 +22,6 @@ public class JoueurRepoImpl {
     public void create(Joueur joueur) throws SQLException {
 
         // Joueur joueur = null;
-        
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.persist(joueur);
         tx.commit();
@@ -65,18 +64,14 @@ public class JoueurRepoImpl {
         }
 
     }
-    */
-
+     */
     // Suppression d'un joueur
     public void delete(Long id) throws SQLException {
-        
-        joueur = getById(id);
 
+        joueur = getById(id);
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.delete(joueur);
-
-            System.out.println("Joueur supprime");
-     
+        System.out.println("Joueur supprime");
 
     }
 
@@ -85,9 +80,7 @@ public class JoueurRepoImpl {
 
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         joueur = session.get(Joueur.class, id);
-
         System.out.println("Joueur recupere");
-
         return joueur;
 
     }
