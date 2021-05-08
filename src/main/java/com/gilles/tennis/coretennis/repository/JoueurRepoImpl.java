@@ -10,56 +10,32 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class JoueurRepoImpl {
 
     // Creation joueur
+    Transaction tx = null;
     public void create (Joueur joueur) throws SQLException {
 
-        Connection conn = null;
-        try {
-
-            /*BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setInitialSize(2);
-            dataSource.setUrl("jdbc:mysql://localhost:3306/TENNIS");
-            dataSource.setUsername("gilles");
-            dataSource.setPassword("gillespatr9ck");
-            conn = dataSource.getConnection();
-            */
-
-            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
-            conn = dataSource.getConnection();
-
-            // Insert
-
-            PreparedStatement statement = conn.prepareStatement("insert into  JOUEUR (NOM,PRENOM,SEXE) values(?,?,?)", Statement.RETURN_GENERATED_KEYS);
-
-
-            statement.setString(1, joueur.getNom());
-            statement.setString(2, joueur.getPrenom());
-            statement.setString(3,joueur.getSexe().toString());
-
-            statement.executeUpdate();
-             ResultSet rs = statement.getGeneratedKeys();
-
-             if (rs.next()){
-                joueur.setId(rs.getLong(1));
-             }
-
-
-            System.out.println("Joueur Cree");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if (conn != null) {
-                conn.rollback();
+       // Joueur joueur = null;
+        Session session = null;
+        try  {
+             session = HibernateUtil.getSessionFactory().openSession();
+             tx = session.beginTransaction();
+             session.persist(joueur);
+             tx.commit();
+           
+        } catch(Exception e){
+            if (tx != null) {
+                tx.rollback();
             }
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            
+            e.printStackTrace();
+        }
+        finally {
+            if (session != null){
+                session.close();
             }
         }
 
@@ -150,17 +126,20 @@ public class JoueurRepoImpl {
     // Recherche d'un joueur
     public Joueur getById (Long id) throws SQLException {
 
-       
         Joueur joueur = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            
+        Session session = null;
+        try  {
+            session = HibernateUtil.getSessionFactory().openSession();
              joueur = session.get(Joueur.class, id);
-
-
 
             System.out.println("Joueur recupere");
         } catch(Throwable t){
             t.printStackTrace();
+        }
+        finally {
+            if (session != null){
+                session.close();
+            }
         }
 
         return joueur;

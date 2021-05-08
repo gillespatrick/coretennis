@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="4- A transactional service with DAO (Data Access Object)">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/services/TournoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/services/TournoiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
+    <list default="true" id="e4a1bed7-c378-4a5e-9099-b4f11849a22f" name="Default Changelist" comment="5- Use hibernate for reading a tournament">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/entity/Tournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/entity/Tournoi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/services/TournoiService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gilles/tennis/coretennis/services/TournoiService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/coretennis-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/coretennis-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +30,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/TournoiRepoImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/Cour.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Joueur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/DataSourceProvider.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/TPs.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Match.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Epreuve.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/HibernateUtil.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/services/MatchService.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/ScoreRepoImpl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/MatchRepoImpl.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/Cour.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/DataSourceProvider.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Match.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Epreuve.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/repository/JoueurRepoImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gilles/tennis/coretennis/entity/Tournoi.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qEBgCkSaNFHj8q6O8IlFcf72mW" />
   <component name="ProjectLevelVcsManager">
@@ -57,6 +56,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -157,7 +157,8 @@
     <MESSAGE value="2- Improve PlayerService and create TournamentService" />
     <MESSAGE value="3- More complex business service" />
     <MESSAGE value="4- A transactional service with DAO (Data Access Object)" />
-    <option name="LAST_COMMIT_MESSAGE" value="4- A transactional service with DAO (Data Access Object)" />
+    <MESSAGE value="5- Use hibernate for reading a tournament" />
+    <option name="LAST_COMMIT_MESSAGE" value="5- Use hibernate for reading a tournament" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
