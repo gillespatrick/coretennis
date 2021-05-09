@@ -1,6 +1,7 @@
 package com.gilles.tennis.coretennis.repository;
 
 import com.gilles.tennis.coretennis.DataSourceProvider;
+import com.gilles.tennis.coretennis.HibernateUtil;
 import com.gilles.tennis.coretennis.entity.Joueur;
 import com.gilles.tennis.coretennis.entity.Score;
 
@@ -8,8 +9,14 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class ScoreRepoImpl {
+    
+     Transaction tx = null;
+    Session session = null;
+    Score score = null;
 
     // Creation joueur
     public void create (Score score) throws SQLException {
@@ -77,6 +84,16 @@ public class ScoreRepoImpl {
                 e.printStackTrace();
             }
         }
+
+    }
+    
+    // Recherche d'un score
+    public Score getById(Long id) throws SQLException {
+
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        score = session.get(Score.class, id);
+        System.out.println("score recupere");
+        return score;
 
     }
 

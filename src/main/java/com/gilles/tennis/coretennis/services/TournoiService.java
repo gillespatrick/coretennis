@@ -25,12 +25,9 @@ public class TournoiService {
         tournoiRepo.create(tournoi);
     }
 
-    // Recuperation d'un joueur
-    public Tournoi getTournoi(Long id) throws SQLException {
-        return tournoiRepo.getById(id);
-
-    }
-    
+  
+  
+    // Delete Tournoi
     public Tournoi deleteTournoi(Long id) throws SQLException{
          try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -53,5 +50,30 @@ public class TournoiService {
 
         }
        
+    }
+    
+      // Get Tournoi
+    public Tournoi getTournoi(Long id) throws SQLException {
+
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            tx = session.beginTransaction();
+            tournoi = tournoiRepo.getById(id);
+
+            tx.commit();
+            System.out.println("Le tournoi a ete lu avec succes");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+            return tournoi;
+
+        }
     }
 }
