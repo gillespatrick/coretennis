@@ -1,0 +1,144 @@
+package com.gilles.tennis.coretennis.repository;
+
+import com.gilles.tennis.coretennis.DataSourceProvider;
+import com.gilles.tennis.coretennis.HibernateUtil;
+import com.gilles.tennis.coretennis.entity.Joueur;
+import com.gilles.tennis.coretennis.entity.Tournoi;
+
+import javax.sql.DataSource;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class TournoiRepoImpl {
+        Session session = null;
+        Tournoi tournoi = new Tournoi();
+        Transaction tx = null;
+        
+    // Creation tournoi
+    public void create(Tournoi tournoi) throws SQLException {
+        
+        
+
+        try {
+             session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.persist(tournoi);
+            tx.commit();
+            
+        } catch(Exception e){
+            if (tx != null) {
+                tx.rollback();
+            }
+            
+            e.printStackTrace();
+        }
+        finally {
+            if (session != null){
+                session.close();
+            }
+        }
+    }
+
+    // Mise a jour du tournoi
+    public void Update(Tournoi tournoi) throws SQLException {
+
+        Connection conn = null;
+        try {
+
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
+            conn = dataSource.getConnection();
+
+            // Insert
+            PreparedStatement statement = conn.prepareStatement("update TOURNOI set NOM=?, CODE=? where ID=?");
+
+            statement.setString(1, tournoi.getNom());
+            statement.setString(2, tournoi.getCode());
+            statement.setLong(3, tournoi.getId());
+
+            statement.executeUpdate();
+
+            System.out.println("Tournoi mise a jour");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (conn != null) {
+                conn.rollback();
+            }
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    // Suppression d'un tournoi
+    public void delete(Long id) throws SQLException {
+        
+        tournoi = getById(id);
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.delete(tournoi);
+        System.out.println("tournoi supprime");
+
+        
+    }
+
+    // Recherche d'un tournoi
+    public Tournoi getById(Long id) throws SQLException {
+
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        tournoi = session.get(Tournoi.class, id);
+        System.out.println("Tournoi recupere");
+        return tournoi;
+
+    }
+
+    // Liste des tournois
+    public List<Tournoi> list() throws SQLException {
+
+        Connection conn = null;
+        List<Tournoi> tournois = new ArrayList<>();
+        try {
+
+            DataSource dataSource = DataSourceProvider.getDataSourceInstance();
+            conn = dataSource.getConnection();
+
+            PreparedStatement statement = conn.prepareStatement("select ID,NOM,CODE from TOURNOI ");
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Tournoi tournoi = new Tournoi();
+                tournoi.setId(rs.getLong("ID"));
+                tournoi.setNom(rs.getString("NOM"));
+                tournoi.setCode(rs.getString("CODE"));
+                tournois.add(tournoi);
+            }
+
+            System.out.println("List des tournois recupere");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (conn != null) {
+                conn.rollback();
+            }
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return tournois;
+
+    }
+
+}
