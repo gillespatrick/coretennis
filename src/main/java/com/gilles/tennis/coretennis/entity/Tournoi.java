@@ -1,7 +1,17 @@
 package com.gilles.tennis.coretennis.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema="TENNIS", name="Tournoi")
 public class Tournoi {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
 
@@ -30,6 +40,5 @@ public class Tournoi {
     }
 
     private String code;
-
 
 }

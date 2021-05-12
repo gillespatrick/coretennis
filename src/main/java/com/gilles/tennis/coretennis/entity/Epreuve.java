@@ -1,10 +1,24 @@
 package com.gilles.tennis.coretennis.entity;
 
-public class Epreuve {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(schema="TENNIS", name="EPREUVE")
+public class Epreuve {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private short annee;
+    @Transient
     private Tournoi tournoi;
+    @Column(name = "TYPE_EPREUVE")
     private Character typeEpreuve;
 
     public Character getTypeEpreuve() {
